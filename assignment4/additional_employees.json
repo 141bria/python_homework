@@ -1,0 +1,9 @@
+
+task2_employees =  task1_older
+print(task2_employees)
+additional_employees.json = [
+    'Name':["Eve","Frank"],
+    'Age': [28,40],
+    'City':["Miami","Seattle"]
+    'Salary':[60000,95000]
+]
