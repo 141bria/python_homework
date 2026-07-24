@@ -1,0 +1,75 @@
+string to be logged
+Calling: no_params
+ args: ()
+ kwargs: {}
+ returned: None
+Calling: test_arguements
+ args: (7, 11, 9)
+ kwargs: {}
+ returned: None
+Calling: test_other_arguements
+ args: (29, 'sunshine', 32, 'hot')
+ kwargs: {}
+string to be logged
+Calling: no_params
+ args: ()
+ kwargs: {}
+ returned: None
+Calling: test_arguements
+ args: (7, 11, 9)
+ kwargs: {}
+ returned: None
+Calling: test_other_arguements
+ args: ('sunshine', 'hot')
+ kwargs: {}
+string to be logged
+Calling: no_params
+ args: ()
+ kwargs: {}
+ returned: None
+Calling: test_arguements
+ args: (7, 11, 9)
+ kwargs: {}
+ returned: None
+Calling: test_other_arguements
+ args: ('sunshine', 'hot')
+ kwargs: {}
+string to be logged
+Calling: no_params
+ args: ()
+ kwargs: {}
+ returned: None
+Calling: test_arguements
+ args: (7, 11, 9)
+ kwargs: {}
+ returned: None
+Calling: test_other_arguements
+ args: ()
+ kwargs: {'word1': 'sunshine', 'word2': 'hot'}
+ returned: <function logger_decorator at 0x104f3b9c0>
+string to be logged
+Calling: no_params
+ args: ()
+ kwargs: {}
+ returned: None
+Calling: test_arguements
+ args: (7, 11, 9)
+ kwargs: {}
+ returned: True
+Calling: test_other_arguements
+ args: ()
+ kwargs: {'word1': 'sunshine', 'word2': 'hot'}
+ returned: <function logger_decorator at 0x102cf39c0>
+string to be logged
+Calling: no_params
+ args: ()
+ kwargs: {}
+ returned: None
+Calling: test_arguements
+ args: (7, 11, 9)
+ kwargs: {}
+ returned: True
+Calling: test_other_arguements
+ args: ()
+ kwargs: {'word1': 'sunshine', 'word2': 'hot'}
+ returned: <function logger_decorator at 0x104fbb9c0>
