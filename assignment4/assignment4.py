@@ -53,6 +53,7 @@ print(salary_median)
 clean_data["Hire Date"] = pd.to_datetime(clean_data["Hire Date"],errors="coerce")
 clean_data["Name"]=clean_data["Name"].str.strip()
 clean_data["Department"]=clean_data["Department"].str.strip()
+#Uppercase
 clean_data["Name"]=clean_data["Name"].str.upper()
 clean_data["Department"]=clean_data["Department"].str.upper()
 print(clean_data)
