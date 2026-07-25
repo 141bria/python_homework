@@ -19,9 +19,36 @@ task1_older.to_csv("employees.csv",index=False)
 #Task 2
 task2_employees =  task1_older
 print(task2_employees)
-additional_employees.json = [
-    'Name':["Eve","Frank"],
-    'Age': [28,40],
-    'City':["Miami","Seattle"]
-    'Salary':[60000,95000]
-]
+import pandas as pd
+df = pd.read_json('assignment4/additional_employees.json')
+json_employees = pd.read_json('assignment4/additional_employees.json')
+print(json_employees)
+
+more_employees = pd.concat([task1_older,json_employees],ignore_index=True)
+
+#Task 3
+first_three = more_employees
+print(first_three.head(3))
+last_two = more_employees
+print(more_employees.tail(2))
+print(more_employees.info())
+
+#Task 4
+df = pd.read_csv('assignment4/dirty_data.csv')
+dirty_data = df
+print(dirty_data)
+clean_data = dirty_data.copy()
+clean_data = clean_data.drop_duplicates()
+print(clean_data)
+clean_data["Age"]= pd.to_numeric(clean_data["Age"],errors="coerce")
+clean_data["Age"]=pd.to_numeric(clean_data["Age"])
+print(clean_data)
+clean_data["Salary"]=pd.to_numeric(clean_data["Salary"],errors="coerce")
+clean_data["Salary"]=pd.to_numeric(clean_data["Salary"])
+print(clean_data)
+age_mean = clean_data["Age"].mean()
+print(age_mean)
+salary_median = clean_data["Salary"].median()
+print(salary_median)
+clean_data["Hire Date"] = pd.to_datetime(clean_data["Hire Date"],errors="coerce")
+clean_data["Name"]
