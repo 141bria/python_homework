@@ -1,8 +1,8 @@
 #Write your code here.
 #Task1
-def say_hello ():
-    print("Hello, Sunshine!")
-say_hello()
+def hello ():
+    return 'Hello!'
+hello()
 #Task2
 def greet(name):
     return "Hello, "+ name + "!"
@@ -10,45 +10,54 @@ greet("Bria")
 print (greet("Bria"))
 #Task3
 def calc(num1,num2,operation):
-    if operation == "add":
+    if operation == "addition":
         return num1+num2
-    elif operation == "sub":
+    elif operation == "subtraction":
         return num1-num2
-    elif operation == "div":
+    elif operation == "division":
         if num2==0:
             return "Can't divide by 0!"
         return num1/num2
-    elif operation == "mult":
+    elif operation == "multiplication":
         return num1 * num2
     elif operation == "modulo":
         return num1 % num2
+    elif operation == "int_divide":
+        return num1//num2
+    elif operation == "power":
+        return num1**num2
     else:
         return "Invalid operation"
-print (calc(70,3,"add"))
-print (calc(70,3,"sub"))
-print (calc(70,3,"div"))
-print (calc(70,3,"mult"))
+print (calc(70,3,"addition"))
+print (calc(70,3,"subtraction"))
+print (calc(70,3,"division"))
+print (calc(70,3,"multiplication"))
 print (calc(70,3,"modulo"))
+print (calc(70,3,"int_divide"))
+print (calc(70,3,"power"))
 #Task4
-def data_type_conversion(vaule,type):
-    if type == "str":
-        try: float(str)
+def data_type_conversion(vaule,type_name):
+    if type_name == "str":
+        try: str(vaule)
         except Exception:
-            print("You can't change a number to a word!")
+            return f"You can't convert {vaule} into a {type_name}."
         return str(vaule)
-    elif type == "int":
-        return int(vaule)
-    elif type == "float":
-        try: str(float)
+    elif type_name == "int":
+        try: int(vaule)
         except Exception:
-            print("You can't change a word to a number")
+            return f"You can't convert {vaule} into a {type_name}."     
+        return int(vaule)
+    elif type_name == "float":
+        try: float(vaule)
+        except Exception:
+            return f"You can't convert {vaule} into a {type_name}."
         return float(vaule)
 print(data_type_conversion(3,"str"))
 print(data_type_conversion(3.5,"int"))
 print(data_type_conversion(387,"float"))
 
 #Task5
-def grade_scale(*args):
+def grade(*args):
     try: 
         average = sum(args)/len(args)
         if average >=90:
@@ -62,8 +71,8 @@ def grade_scale(*args):
         else:
             return "F"
     except Exception:
-        return "Invalid data was provided"
-print(grade_scale(83,89,97,71,70,80,69,90,94))
+        return "Invalid data was provided."
+print(grade(83,89,97,71,70,80,69,90,94))
 #Task 6
 #start w/an empty string
 #loop 7 times
@@ -86,7 +95,10 @@ def student_scores(choice,**kwargs):
             if value > high_score:
                 high_score = value
                 best_student = key
-            return best_student
+        return best_student
+    elif choice == "mean":
+        average = sum(kwargs.values())/len(kwargs.values())
+    return average
 print(student_scores("best",John=79,Amy=83,Jasmine=94))
 #Task 8
 def titleize (string):
@@ -105,27 +117,35 @@ print(titleize("boogie on down!"))
 # secret = unknown word
 # guess = various letters that will be in this str
 #if letter in str goes in str if not return _
-def hangman_game(secret,guess):
-    unknown_word= " "
+def hangman(secret,guess):
+    unknown_word= ""
     for letter in secret:
         if letter in guess:
             unknown_word = unknown_word + letter
         else: 
             unknown_word = unknown_word + "_" 
     return unknown_word
-print(hangman_game("Pears","mnoaps"))
+print(hangman("Pears","mnoaps"))
 
 #Task 10
 # checking three things 
 # if str starts w/ vowel,consonants, or qu. 
 # Depending on what it is will determine what is added to the str
 def pig_latin(sentence):
-    pig_word= " "
+    pig_words =[]
     vowels= "aieou"
-    if sentence[0]in vowels:
-        pig_word = pig_word+ "ay"
-    elif sentence[0] not in vowels:
-        pig_word = pig_word + "ay" 
-    else:
-        pig_word = sentence[2:] + "qu" + "ay"
-print(pig_latin("One day, things will change"))
+    words = sentence.split()
+    for word in words:
+        if word[0]in vowels:
+            pig_words.append(word+ "ay")
+        elif word.startswith("qu"):
+            pig_words.append(word[2:]+"quay")
+        else:
+            i=0
+            while i < len(word) and word[i] not in vowels:
+                if word[i:i+2] == "qu":
+                    i += 2
+                    break
+                i +=1
+                pig_words.append(word[i:]+word[:i]+"ay")
+    return " ".join(pig_words)
