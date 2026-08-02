@@ -9,7 +9,7 @@ def greet(name):
 greet("Bria")
 print (greet("Bria"))
 #Task3
-def calc(num1,num2,operation):
+def calc(num1,num2,operation='multiply'):
     if operation == "add":
         return num1+num2
     elif operation == "subtract":
@@ -46,17 +46,17 @@ print (calc(70,3,"power"))
 def data_type_conversion(value,type_name):
     if type_name == "str":
         try: str(value)
-        except Exception:
+        except ValueError:
             return f"You can't convert {value} into a {type_name}."
         return str(value)
     elif type_name == "int":
         try: int(value)
-        except Exception:
+        except ValueError:
             return f"You can't convert {value} into a {type_name}."     
         return int(value)
     elif type_name == "float":
         try: float(value)
-        except Exception:
+        except ValueError:
             return f"You can't convert {value} into a {type_name}."
         return float(value)
 print(data_type_conversion(3,"str"))
@@ -65,20 +65,21 @@ print(data_type_conversion(387,"float"))
 
 #Task5
 def grade(*args):
-    try: 
-        average = sum(args)/len(args)
-        if average >=90:
-            return "A"
-        elif average >=80:
-            return "B"
-        elif average >=70:
-            return "C"
-        elif average >=60:
-            return "D"
-        else:
-            return "F"
+    if len(args)== 0:
+        return "Invalid data was provided."
+    try: average = sum(args)/len(args)
     except TypeError:
         return "Invalid data was provided."
+    if average >=90:
+            return "A"
+    elif average >=80:
+            return "B"
+    elif average >=70:
+            return "C"
+    elif average >=60:
+            return "D"
+    else:
+            return "F"
 print(grade(83,89,97,71,70,80,69,90,94))
 #Task 6
 #start w/an empty string
@@ -114,8 +115,10 @@ def titleize (string):
     for i, word in enumerate(words):
         if i == 0:
             words[i]= word.capitalize()
+        elif i == len(words)-1:
+            words[i] = word.capitalize()
         elif word not in little_words:
-            words[-1] = words[-1].capitalize()
+            words[i]= word.capitalize()
     return " ".join (words)
 print(titleize("boogie on down!"))
 
@@ -160,3 +163,5 @@ print(pig_latin("apple"))
 print(pig_latin("queen"))
 print(pig_latin("squeal"))
 print(pig_latin("school"))
+print(pig_latin("square"))
+print(pig_latin("squash"))
