@@ -19,7 +19,7 @@ def calc(num1,num2,operation):
             return num1/num2
         except ZeroDivisionError:
             return "You can't divide by 0!"
-    elif operation == "multipliy":
+    elif operation == "multiply":
         try:
             return num1 * num2
         except TypeError:
@@ -38,7 +38,7 @@ def calc(num1,num2,operation):
 print (calc(70,3,"add"))
 print (calc(70,3,"subtract"))
 print (calc(70,3,"divide"))
-print (calc(70,3,"multipliy"))
+print (calc(70,3,"multiply"))
 print (calc(70,3,"modulo"))
 print (calc(70,3,"int_divide"))
 print (calc(70,3,"power"))
@@ -96,10 +96,10 @@ print (repeat("Spongebob SquarePants",7))
 #Task 7
 def student_scores(choice,**kwargs):
     if choice == "best":
-        high_score = 0
+        high_score = None
         best_student = ""
         for key, value in kwargs.items():
-            if value > high_score:
+            if high_score is None or value> high_score:
                 high_score = value
                 best_student = key
         return best_student
@@ -115,7 +115,7 @@ def titleize (string):
         if i == 0:
             words[i]= word.capitalize()
         elif word not in little_words:
-            words[i] = word.capitalize()
+            words[-1] = words[-1].capitalize()
     return " ".join (words)
 print(titleize("boogie on down!"))
 
