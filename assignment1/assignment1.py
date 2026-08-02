@@ -10,48 +10,55 @@ greet("Bria")
 print (greet("Bria"))
 #Task3
 def calc(num1,num2,operation):
-    if operation == "addition":
+    if operation == "add":
         return num1+num2
-    elif operation == "subtraction":
+    elif operation == "subtract":
         return num1-num2
-    elif operation == "division":
-        if num2==0:
-            return "Can't divide by 0!"
-        return num1/num2
-    elif operation == "multiplication":
-        return num1 * num2
+    elif operation == "divide":
+        try:
+            return num1/num2
+        except ZeroDivisionError:
+            return "You can't divide by 0!"
+    elif operation == "multipliy":
+        try:
+            return num1 * num2
+        except TypeError:
+            return "You can't multiply those values!"
     elif operation == "modulo":
         return num1 % num2
     elif operation == "int_divide":
-        return num1//num2
+        try:
+            return num1//num2
+        except ZeroDivisionError:
+            return "You can't divide by 0!"
     elif operation == "power":
         return num1**num2
     else:
         return "Invalid operation"
-print (calc(70,3,"addition"))
-print (calc(70,3,"subtraction"))
-print (calc(70,3,"division"))
-print (calc(70,3,"multiplication"))
+print (calc(70,3,"add"))
+print (calc(70,3,"subtract"))
+print (calc(70,3,"divide"))
+print (calc(70,3,"multipliy"))
 print (calc(70,3,"modulo"))
 print (calc(70,3,"int_divide"))
 print (calc(70,3,"power"))
 #Task4
-def data_type_conversion(vaule,type_name):
+def data_type_conversion(value,type_name):
     if type_name == "str":
-        try: str(vaule)
+        try: str(value)
         except Exception:
-            return f"You can't convert {vaule} into a {type_name}."
-        return str(vaule)
+            return f"You can't convert {value} into a {type_name}."
+        return str(value)
     elif type_name == "int":
-        try: int(vaule)
+        try: int(value)
         except Exception:
-            return f"You can't convert {vaule} into a {type_name}."     
-        return int(vaule)
+            return f"You can't convert {value} into a {type_name}."     
+        return int(value)
     elif type_name == "float":
-        try: float(vaule)
+        try: float(value)
         except Exception:
-            return f"You can't convert {vaule} into a {type_name}."
-        return float(vaule)
+            return f"You can't convert {value} into a {type_name}."
+        return float(value)
 print(data_type_conversion(3,"str"))
 print(data_type_conversion(3.5,"int"))
 print(data_type_conversion(387,"float"))
@@ -70,7 +77,7 @@ def grade(*args):
             return "D"
         else:
             return "F"
-    except Exception:
+    except TypeError:
         return "Invalid data was provided."
 print(grade(83,89,97,71,70,80,69,90,94))
 #Task 6
@@ -98,12 +105,12 @@ def student_scores(choice,**kwargs):
         return best_student
     elif choice == "mean":
         average = sum(kwargs.values())/len(kwargs.values())
-    return average
+        return average
 print(student_scores("best",John=79,Amy=83,Jasmine=94))
 #Task 8
 def titleize (string):
     words = string.split()
-    little_words = ["a","on","an","the","of","is","in"]
+    little_words = ["a","on","an","the","of","is","in","and"]
     for i, word in enumerate(words):
         if i == 0:
             words[i]= word.capitalize()
@@ -133,7 +140,7 @@ print(hangman("Pears","mnoaps"))
 # Depending on what it is will determine what is added to the str
 def pig_latin(sentence):
     pig_words =[]
-    vowels= "aieou"
+    vowels= "aeiou"
     words = sentence.split()
     for word in words:
         if word[0]in vowels:
@@ -147,5 +154,9 @@ def pig_latin(sentence):
                     i += 2
                     break
                 i +=1
-                pig_words.append(word[i:]+word[:i]+"ay")
+            pig_words.append(word[i:]+word[:i]+"ay")
     return " ".join(pig_words)
+print(pig_latin("apple"))
+print(pig_latin("queen"))
+print(pig_latin("squeal"))
+print(pig_latin("school"))
