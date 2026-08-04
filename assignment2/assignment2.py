@@ -1,5 +1,6 @@
 # Task 2
 import csv
+import os
 def read_employees ():
     fields = [ ]
     rows = [ ]
@@ -17,7 +18,8 @@ def read_employees ():
         return employees
 
     except Exception as e:
-        print (e)
+        print(f"Exception type: {type (e).__name__}")
+        print(f"Exception message: {e}")
 employees = read_employees()
 
 #Task 3
@@ -55,7 +57,6 @@ def employee_dict(row):
     for index in range (len(row)):
         if employees ["fields"][index] != "employee_id":
             employee[employees["fields"][index]] = row[index]
-        print(employee)
     return employee
 #Task 9
 def all_employees_dict():
@@ -67,7 +68,6 @@ def all_employees_dict():
 def get_this_value():
     return os.getenv("THISVALUE","ABC")
 #Task 11
-import os
 import custom_module
 def set_that_secret(new_secret):
     custom_module.set_secret(new_secret)
@@ -93,8 +93,8 @@ def read_csv(filename):
 def read_minutes():
     minutes1= {}
     minutes2= {}
-    minutes1= read_csv("/Users/brii/Desktop/python_homework/csv/minutes1.csv")
-    minutes2= read_csv("/Users/brii/Desktop/python_homework/csv/minutes2.csv")
+    minutes1= read_csv("../csv/minutes1.csv")
+    minutes2= read_csv("../csv/minutes2.csv")
     return minutes1,minutes2
 minutes1,minutes2 = read_minutes()
 
@@ -111,16 +111,18 @@ from datetime import datetime
 
 def create_minutes_list():
     minutes_list=list(minutes_set)
-    minutes_list= list(map lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y"))),minutes_list
+    minutes_list= list(map (lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y")),minutes_list))
+    return minutes_list
 minutes_list=create_minutes_list()
 
 #Task 15
 def write_sorted_list():
     minutes_list.sort()
-    minutes_list= list(map())
+    string_mintues = list(map( lambda x: (x[0],x[1].strftime("%B %d, %Y")),minutes_list
+    ))
     with open("./minutes.csv","w") as file:
         writer= csv.writer(file)
-        writer.writerow(file)
-        writer.writerows(fields)
+        writer.writerow(["name","date"])
+        writer.writerows(string_mintues)
     return minutes_list
 write_sorted_list
