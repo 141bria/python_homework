@@ -66,13 +66,14 @@ def all_employees_dict():
     return all_employees
 #Task 10
 def get_this_value():
-    return os.getenv("THISVALUE","ABC")
+    return os.getenv("THISVALUE")
 #Task 11
 import custom_module
 def set_that_secret(new_secret):
     custom_module.set_secret(new_secret)
-set_that_secret("pizza")
-print (custom_module.secret)
+if __name__ == "__main__":
+    set_that_secret("pizza")
+    print (custom_module.secret)
 
 #Task 12
 def read_csv(filename):
@@ -124,5 +125,5 @@ def write_sorted_list():
         writer= csv.writer(file)
         writer.writerow(["name","date"])
         writer.writerows(string_mintues)
-    return minutes_list
+    return string_mintues
 write_sorted_list
