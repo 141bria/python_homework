@@ -57,7 +57,7 @@ def employee_dict(row):
     for index in range (len(row)):
         if employees ["fields"][index] != "employee_id":
             employee[employees["fields"][index]] = row[index]
-    return employee["rows"]
+    return employee
 #Task 9
 def all_employees_dict():
     all_employees={ }
@@ -123,7 +123,7 @@ def write_sorted_list():
     ))
     with open("./minutes.csv","w") as file:
         writer= csv.writer(file)
-        writer.writerow(["fields"])
+        writer.writerow(minutes1["fields"])
         writer.writerows(string_mintues)
     return string_mintues
 write_sorted_list()
