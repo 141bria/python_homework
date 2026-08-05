@@ -7,11 +7,11 @@ logger.log(logging.INFO,"string to be logged")
 
 def logger_decorator(func):
     def wrapper(*args,**kwargs):
-        logger.log(logging.INFO,f"Calling: {func.__name__}")
-        logger.log(logging.INFO,f" args: {args}")
-        logger.log(logging.INFO, f" kwargs: {kwargs}")
+        logger.log(logging.INFO,f"function: {func.__name__}")
+        logger.log(logging.INFO,f"positional parameters: {args}")
+        logger.log(logging.INFO, f"keyword parameters: {kwargs}")
         result = func(*args,**kwargs)
-        logger.log(logging.INFO,f" returned: {result}")
+        logger.log(logging.INFO,f"return: {result}")
         return result
     return wrapper
 
@@ -24,7 +24,7 @@ def test_arguements(*args):
     return True
 @logger_decorator
 def test_other_arguements(**kwargs):
-    return logger_decorator
+    return kwargs
 
 no_params()
 test_arguements(7,11,9)

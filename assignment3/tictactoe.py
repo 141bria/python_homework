@@ -80,7 +80,7 @@ while True:
     move = input()
     try:
         board.move(move)
-        game_over,mesage = board.whats_next()
+        game_over,message = board.whats_next()
         print(message)
     except TictactoeException as e:
         print(e)

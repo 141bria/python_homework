@@ -1,6 +1,6 @@
 #Task 3
 import csv
-with open ("csv/employees.csv","r") as file:
+with open ("../csv/employees.csv","r") as file:
     content = csv.reader(file)
     print(content)
     employee_info= [employee for employee in content if employee[0] != "employee_id"]                

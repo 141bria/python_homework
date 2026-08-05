@@ -3,11 +3,13 @@ def make_hangman(secret_word):
     guesses = [ ]
     def hangman_closure(letter):
         guesses.append(letter)
+        display_word = ""
         for letter in secret_word:
             if letter in guesses:
-                print(letter)
+                display_word += letter
         else:
-            print ("_")
+            display_word += "-"
+            print (display_word)
         if all(letter in guesses for letter in secret_word):
             return True
         else:
