@@ -7,8 +7,8 @@ def make_hangman(secret_word):
         for letter in secret_word:
             if letter in guesses:
                 display_word += letter
-        else:
-            display_word += "-"
+            else:
+                display_word += "-"
             print (display_word)
         if all(letter in guesses for letter in secret_word):
             return True

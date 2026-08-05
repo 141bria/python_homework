@@ -7,8 +7,9 @@ class TictactoeException(Exception):
 class Board():
     valid_moves=["upper left", "upper center", "upper right", "middle left", "center", "middle right", "lower left", "lower center", "lower right"]
     def __init__(self):
-        self.board_array=[" ", " "," "],[" ", " "," "],[" ", " "," "]
+        self.board_array=[[" ", " "," "],[" ", " "," "],[" ", " "," "]]
         self.turn= "X"
+        self.last_move = None
     def __str__(self):
             lines=[]
             lines.append(f" {self.board_array[0][0]} | {self.board_array[0][1]} | {self.board_array[0][2]} \n")
@@ -27,6 +28,7 @@ class Board():
         if self.board_array[row][column] != " ":
             raise TictactoeException("That spot is taken.")
         self.board_array[row][column] = self.turn
+        self.last_move = move_string
         if self.turn == "X":
             self.turn = "O"
         else:
@@ -44,7 +46,7 @@ class Board():
                 continue
             break
         if (cat):
-            return (True, "Cat's Game.")
+            return (True, "Cat's Game")
         win = False
         for i in range(3): # check rows
             if self.board_array[i][0] != " ":
@@ -65,19 +67,19 @@ class Board():
                     win = True
         if not win:
             if self.turn == "X": 
-                return (False, "X's turn.")
+                return (False, "X's turn")
             else:
-                return (False, "O's turn.")
+                return (False, "O's turn")
         else:
             if self.turn == "O":
-                return (True, "X wins!")
+                return (True, "X has won!")
             else:
-                return (True, "O wins!")
+                return (True, "O has won!")
             
 board= Board()
 while True:
     print(board)
-    move = input()
+    move = input(f"{board.turn}'s turn: ")
     try:
         board.move(move)
         game_over,message = board.whats_next()

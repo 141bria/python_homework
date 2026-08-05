@@ -8,12 +8,12 @@ class Point:
          return self.x == other.x and self.y == other.y
     def __str__(self):
         return f"Point {self.x}, {self.y}"
-    def _distance_to(self,other):
-        return math.sqrt((other.x-self.x)**2+(other.y-self.y)**2)**0.5
+    def distance_to(self,other):
+        return math.sqrt((other.x-self.x)**2+(other.y-self.y)**2)
 
 class Vector(Point):
     def __str__(self):
-        return f"Vector{self.x}{self.y}"
+        return f"Vector ({self.x},{self.y})"
     def __add__(self, other):
         return Vector(self.x+other.x, self.y+other.y)
     
@@ -23,6 +23,6 @@ vector1 = Vector(1,2)
 vector2 = Vector(3,4)
 
 print(point1)
-print(point1._distance_to(point2))
+print(point1.distance_to(point2))
 print(point1==point2)
 print(vector1+vector2)

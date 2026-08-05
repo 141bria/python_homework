@@ -24,7 +24,7 @@ def test_arguements(*args):
     return True
 @logger_decorator
 def test_other_arguements(**kwargs):
-    return kwargs
+    return logger_decorator
 
 no_params()
 test_arguements(7,11,9)
