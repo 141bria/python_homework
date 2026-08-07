@@ -73,3 +73,27 @@ Calling: test_other_arguements
  args: ()
  kwargs: {'word1': 'sunshine', 'word2': 'hot'}
  returned: <function logger_decorator at 0x104fbb9c0>
+function: no_params
+positional parameters: none
+keyword parameters: none
+return: None
+function: test_arguements
+positional parameters: [7, 11, 9]
+keyword parameters: none
+return: True
+function: test_other_arguements
+positional parameters: none
+keyword parameters: {'word1': 'sunshine', 'word2': 'hot'}
+return: <function logger_decorator at 0x10421f7e0>
+function: no_params
+positional parameters: none
+keyword parameters: none
+return: None
+function: test_arguements
+positional parameters: [7, 11, 9]
+keyword parameters: none
+return: True
+function: test_other_arguements
+positional parameters: none
+keyword parameters: {'word1': 'sunshine', 'word2': 'hot'}
+return: <function logger_decorator at 0x10491b7e0>

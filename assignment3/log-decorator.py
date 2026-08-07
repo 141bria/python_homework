@@ -3,8 +3,6 @@ logger = logging.getLogger(__name__ + "_parameter_log")
 logger.setLevel(logging.INFO)
 logger.addHandler(logging.FileHandler("./decorator.log","a"))
 
-logger.log(logging.INFO,"string to be logged")
-
 def logger_decorator(func):
     def wrapper(*args,**kwargs):
         logger.log(logging.INFO,f"function: {func.__name__}")

@@ -45,8 +45,6 @@ class Board():
             else:
                 continue
             break
-        if (cat):
-            return (True, "Cat's Game")
         win = False
         for i in range(3): # check rows
             if self.board_array[i][0] != " ":
@@ -66,6 +64,8 @@ class Board():
                 if self.board_array[0][2] ==  self.board_array[1][1] and self.board_array[2][0] == self.board_array[1][1]:
                     win = True
         if not win:
+            if (cat):
+                return (True, "Cat's Game")
             if self.turn == "X": 
                 return (False, "X's turn")
             else:
