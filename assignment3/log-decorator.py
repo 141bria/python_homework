@@ -8,8 +8,8 @@ logger.log(logging.INFO,"string to be logged")
 def logger_decorator(func):
     def wrapper(*args,**kwargs):
         logger.log(logging.INFO,f"function: {func.__name__}")
-        logger.log(logging.INFO,f"positional parameters: {args}")
-        logger.log(logging.INFO, f"keyword parameters: {kwargs}")
+        logger.log(logging.INFO,f"positional parameters: {list(args)if args else 'none'}")
+        logger.log(logging.INFO, f"keyword parameters: {kwargs if kwargs else 'none'}")
         result = func(*args,**kwargs)
         logger.log(logging.INFO,f"return: {result}")
         return result

@@ -72,9 +72,9 @@ class Board():
                 return (False, "O's turn")
         else:
             if self.turn == "O":
-                return (True, "X has won!")
+                return (True, "X has won")
             else:
-                return (True, "O has won!")
+                return (True, "O has won")
             
 board= Board()
 while True:

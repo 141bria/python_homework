@@ -23,6 +23,7 @@ vector1 = Vector(1,2)
 vector2 = Vector(3,4)
 
 print(point1)
+print(vector1)
 print(point1.distance_to(point2))
 print(point1==point2)
 print(vector1+vector2)
