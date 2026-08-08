@@ -23,7 +23,7 @@ import pandas as pd
 json_employees = pd.read_json('additional_employees.json')
 print(json_employees)
 
-more_employees = pd.concat([task1_older,json_employees],ignore_index=True)
+more_employees = pd.concat([task2_employees,json_employees],ignore_index=True)
 
 #Task 3
 first_three = more_employees.head(3)
@@ -53,6 +53,6 @@ clean_data["Age"] =  clean_data["Age"].fillna(age_mean)
 clean_data["Salary"] =  clean_data["Salary"].fillna(salary_median)
 print(salary_median)
 clean_data["Hire Date"] = pd.to_datetime(clean_data["Hire Date"],format="mixed",errors="coerce")
-clean_data["Name"]=clean_data["Name"].str.strip()
+clean_data["Name"]=clean_data["Name"].str.strip().str.upper()
 clean_data["Department"]=clean_data["Department"].str.strip().str.upper()
 print(clean_data)
