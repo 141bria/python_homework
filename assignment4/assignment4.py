@@ -17,20 +17,21 @@ print(task1_older)
 task1_older.to_csv("employees.csv",index=False)
 
 #Task 2
-task2_employees =  task1_older
+task2_employees = pd.read_csv("employees.csv")
 print(task2_employees)
 import pandas as pd
-df = pd.read_json('assignment4/additional_employees.json')
 json_employees = pd.read_json('assignment4/additional_employees.json')
 print(json_employees)
 
 more_employees = pd.concat([task1_older,json_employees],ignore_index=True)
 
 #Task 3
-first_three = more_employees
+first_three = more_employees.head(3)
+last_two = more_employees.tail(2)
+employee_shape = more_employees.shape
 print(first_three.head(3))
-last_two = more_employees
 print(more_employees.tail(2))
+print(employee_shape)
 print(more_employees.info())
 
 #Task 4
@@ -49,11 +50,10 @@ print(clean_data)
 age_mean = clean_data["Age"].mean()
 print(age_mean)
 salary_median = clean_data["Salary"].median()
+clean_data["Age"] =  clean_data["Age"].fillna(age_mean)
+clean_data["Salary"] =  clean_data["Salary"].fillna(age_mean)
 print(salary_median)
-clean_data["Hire Date"] = pd.to_datetime(clean_data["Hire Date"],errors="coerce")
-clean_data["Name"]=clean_data["Name"].str.strip()
-clean_data["Department"]=clean_data["Department"].str.strip()
-#Uppercase
-clean_data["Name"]=clean_data["Name"].str.upper()
-clean_data["Department"]=clean_data["Department"].str.upper()
+clean_data["Hire Date"] = pd.to_datetime(clean_data["Hire Date"],format="mixed",errors="coerce")
+clean_data["Name"]=clean_data["Name"].str.strip().str.upper()
+clean_data["Department"]=clean_data["Department"].str.strip().str.upper()
 print(clean_data)
