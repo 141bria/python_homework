@@ -17,10 +17,12 @@ print(task1_older)
 task1_older.to_csv("employees.csv",index=False)
 
 #Task 2
+import json
+with open('assignment4/additional_employees.json') as file:
+    json_data = json.load(file)
+    json_employees = pd.DataFrame(json_data)
 task2_employees = pd.read_csv("employees.csv")
 print(task2_employees)
-import pandas as pd
-json_employees = pd.read_json('additional_employees.json')
 print(json_employees)
 
 more_employees = pd.concat([task2_employees,json_employees],ignore_index=True)
@@ -35,8 +37,7 @@ print(employee_shape)
 print(more_employees.info())
 
 #Task 4
-df = pd.read_csv('dirty_data.csv')
-dirty_data = df
+dirty_data = pd.read_csv('assignment4/dirty_data.csv')
 print(dirty_data)
 clean_data = dirty_data.copy()
 clean_data = clean_data.drop_duplicates()
@@ -56,3 +57,4 @@ clean_data["Hire Date"] = pd.to_datetime(clean_data["Hire Date"],format="mixed",
 clean_data["Name"]=clean_data["Name"].str.strip().str.upper()
 clean_data["Department"]=clean_data["Department"].str.strip().str.upper()
 print(clean_data)
+print(clean_data['Hire Date'])
