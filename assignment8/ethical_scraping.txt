@@ -1,0 +1,5 @@
+Ethical Scraping review
+   1.  The /staff/ section of the website is restricted for everyone crawling.
+   2. Yes, there are specific rules for certain user agents. AdsBot-Google, Amazonbot, Applebot-Extended,anthropic-ai,AwarioRssBot,AwarioSmartBot,Bytespider,CCBot,ChatGPT, ChatGPT-User, ClaudeBot, Claude-Web, cohere-ai, DataForSeoBot, Diffbot,  FacebookBot,Google-Extended, GPTBot,ImagesiftBot, magpie-crawler, omgili,Omgilibot,peer39_crawler,PerplexityBot and YouBot have a / which indicates that crawling for anything on the site isn't allowed for these specific user-agents.
+   3. While web scraping can be a powerful tool, it is important to follow ethical guidelines and respect website owners’ wishes to avoid excessive server load and legal issues.
+   4. Websites use robots.txt to let users know which sections of the website can or can't be accessed by web crawlers. Robots.txt is used to help website owners control the traffic on their site and to avoid server overload. 

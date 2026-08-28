@@ -1,0 +1,9 @@
+I experienced the following challenges while completing this homework assignmnet:
+1. locating the OWASP website that contained the top 10 vunerabilities
+2. Using XPATH to find each vunerability 
+3. Correctly finding the title and link of each vunerability
+
+I did the following things to resolve these issues:
+1. Review the html structure
+2. Fix my XPATH & loop
+3. USE csv.DictWriter to save all 10 vunerabilities in the CSV
