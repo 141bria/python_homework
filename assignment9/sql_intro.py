@@ -4,3 +4,19 @@ try:
         cursor = conn.cursor()
 except sqlite3.Error as e:
     print(e)
+cursor.execute("""""
+CREATE TABLE IF NOT EXSISTS Publishers(
+) 
+""")
+cursor.execute("""""
+CREATE TABLE IF NOT EXSISTS Magazines(
+) 
+""")
+cursor.execute("""""
+CREATE TABLE IF NOT EXSISTS Subscibers(
+) 
+""")
+cursor.execute("""""
+CREATE TABLE IF NOT EXSISTS Subscriptions(
+) 
+""")
